@@ -1,4 +1,5 @@
+Pakistani White Hat HAcker Mr Sabaz ali khan
 ps aux | grep airbase-ng
 airbase-ng -e "white hat hacker free wifi" -c6 wlan0 
-airbase-ng -e "White Hat hacker-c6 wlan0 fori in {1..500}; do airbase-ng -e "hacker-wifi-$i" -c $((i+1)) wlan0 & done 
+for i in {1..500}; do airbase-ng -e "hacker-wifi-$i" -c $((i+1)) wlan0 & done 
 
