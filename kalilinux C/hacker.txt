@@ -1,0 +1,143 @@
+1. Basic File and Directory Commands
+These commands help navigate and manage files and directories in Kali Linux.
+
+ls: Lists files and directories in the current directory.
+Example: ls -la (shows all files, including hidden, in detailed format)
+Use: Identify contents of a directory.
+cd: Changes the current working directory.
+Example: cd /usr/share (navigates to /usr/share directory)
+Use: Move between directories.
+pwd: Prints the current working directory.
+Example: pwd (outputs something like /home/kali)
+Use: Confirm your current location in the file system.
+mkdir: Creates a new directory.
+Example: mkdir pentest (creates a directory named pentest)
+Use: Organize files by creating new folders.
+rm: Removes files or directories.
+Example: rm -r testdir (recursively deletes testdir and its contents)
+Use: Delete unwanted files or directories (use with caution).
+cp: Copies files or directories.
+Example: cp file1.txt file2.txt (copies file1.txt to file2.txt)
+Use: Duplicate files for backup or modification.
+mv: Moves or renames files/directories.
+Example: mv file1.txt /home/kali/docs/ (moves file1.txt to docs directory)
+Use: Relocate or rename files.
+touch: Creates an empty file or updates file timestamps.
+Example: touch newfile.txt (creates an empty file named newfile.txt)
+Use: Create placeholder files or update modification times.
+2. File Viewing and Editing Commands
+These commands allow you to view and modify file contents.
+
+cat: Concatenates and displays file contents.
+Example: cat log.txt (displays contents of log.txt)
+Use: Quickly view file contents.
+nano: Opens a file in the Nano text editor.
+Example: nano config.txt (opens config.txt for editing)
+Use: Edit files in a user-friendly command-line editor.
+vim: Opens a file in the Vim text editor (advanced).
+Example: vim script.py (opens script.py for editing)
+Use: Edit files with advanced features (requires learning Vim commands).
+grep: Searches for patterns within files.
+Example: grep "error" log.txt (finds lines containing "error" in log.txt)
+Use: Filter specific text from files or command outputs.
+less: Views file contents one page at a time.
+Example: less largefile.txt (displays largefile.txt with scrollable output)
+Use: Read large files without overloading the terminal.
+3. Package Management Commands
+Kali Linux uses the Advanced Package Tool (APT) for managing software packages.
+
+apt update: Updates the package index from repositories.
+Example: sudo apt update (fetches the latest package lists)
+Use: Ensure your system knows the latest available packages.
+apt upgrade: Upgrades installed packages to their latest versions.
+Example: sudo apt upgrade (installs updates for all packages)
+Use: Keep your system and tools up to date.
+apt install: Installs a specific package.
+Example: sudo apt install nmap (installs the Nmap tool)
+Use: Add new tools or software to Kali Linux.
+apt autoremove: Removes unused packages.
+Example: sudo apt autoremove (cleans up unnecessary dependencies)
+Use: Free up disk space by removing obsolete packages.
+4. Networking Commands
+These commands are critical for network analysis and penetration testing.
+
+ifconfig: Displays network interface information.
+Example: ifconfig (shows IP addresses, MAC addresses, etc.)
+Use: Check network configuration (note: ip addr is a modern alternative).
+nmap: Performs network scanning and discovery.
+Example: nmap 192.168.1.0/24 (scans a network range for active hosts)
+Use: Identify devices, open ports, and services on a network.
+ping: Checks connectivity to a host.
+Example: ping google.com (tests connectivity to google.com)
+Use: Verify network reachability.
+netstat: Displays network connections and statistics.
+Example: netstat -tulnp (shows listening ports and associated programs)
+Use: Monitor active network connections.
+dig: Performs DNS lookups.
+Example: dig example.com (queries DNS records for example.com)
+Use: Gather domain information for reconnaissance.
+5. System Monitoring and Process Management
+These commands help monitor and manage system resources and processes.
+
+top: Displays real-time system processes and resource usage.
+Example: top (shows CPU, memory, and process details)
+Use: Monitor system performance and identify resource-heavy processes.
+ps: Lists running processes.
+Example: ps aux (displays all running processes with details)
+Use: Check process status and find process IDs (PIDs).
+kill: Terminates a process by its PID.
+Example: kill 1234 (terminates process with PID 1234)
+Use: Stop unwanted or frozen processes.
+htop: An enhanced, interactive version of top.
+Example: htop (displays processes in a user-friendly interface)
+Use: Monitor and manage processes with a better UI (may need installation).
+6. Penetration Testing and Security Tools
+These are specific to Kali Linux’s cybersecurity focus.
+
+msfconsole: Launches the Metasploit Framework.
+Example: msfconsole (starts the Metasploit console)
+Use: Exploit vulnerabilities and test systems.
+sqlmap: Automates testing for SQL injection vulnerabilities.
+Example: sqlmap -u "http://example.com/page.php?id=1" --dbs (lists databases)
+Use: Test web applications for SQL injection flaws.
+hydra: Performs password cracking.
+Example: hydra -l admin -P wordlist.txt ssh://192.168.1.1 (brute-forces SSH login)
+Use: Test password strength on services like SSH, FTP, or HTTP.
+aircrack-ng: A suite for wireless network auditing.
+Example: aircrack-ng -w wordlist.txt capture.cap (cracks Wi-Fi passwords)
+Use: Analyze and crack wireless network encryption.
+wireshark: Launches the Wireshark network protocol analyzer.
+Example: wireshark & (opens Wireshark in the background)
+Use: Capture and analyze network traffic.
+7. File Permissions and Ownership
+These commands manage access control for files and directories.
+
+chmod: Changes file permissions.
+Example: chmod 755 script.sh (sets executable permissions for owner, read/execute for others)
+Use: Control who can read, write, or execute files.
+chown: Changes file ownership.
+Example: chown kali:kali file.txt (sets kali as owner and group for file.txt)
+Use: Assign ownership to specific users or groups.
+8. Miscellaneous Useful Commands
+These commands enhance productivity or provide system information.
+
+whoami: Displays the current user.
+Example: whoami (outputs kali if using the default user)
+Use: Confirm the current user account.
+sudo: Runs commands with superuser privileges.
+Example: sudo apt update (runs apt update as root)
+Use: Execute commands requiring elevated permissions.
+history: Lists previously executed commands.
+Example: history (shows command history)
+Use: Review or reuse past commands.
+man: Displays the manual for a command.
+Example: man nmap (shows Nmap’s documentation)
+Use: Learn detailed usage of any command.
+wget: Downloads files from the internet.
+Example: wget http://example.com/file.txt (downloads file.txt)
+Use: Retrieve files for analysis or tool installation.
+Additional Notes
+Ethical Use: Always use these commands legally and ethically, as many Kali Linux tools can be misused. Ensure you have permission to test systems.
+Updates for 2025: Regularly update Kali Linux with sudo apt update && sudo apt upgrade to access the latest tools and security patches.
+Learning Resources: For a downloadable reference, check out Kali Linux command cheat sheets or PDFs available online, such as those mentioned in recent posts.
+Practice: Experiment with these commands in a controlled environment, like a virtual machine, to avoid accidental damage to systems.
