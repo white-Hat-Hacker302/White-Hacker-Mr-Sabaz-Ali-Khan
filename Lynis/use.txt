@@ -1,0 +1,92 @@
+1. Install Lynis
+Kali Linux already includes Lynis in its repositories, but you can install/update it using:
+
+bash
+Copy
+Edit
+sudo apt update
+sudo apt install lynis
+To verify installation:
+
+bash
+Copy
+Edit
+lynis show version
+2. Basic Usage
+You need root privileges to run Lynis effectively.
+
+Run a full system audit:
+bash
+Copy
+Edit
+sudo lynis audit system
+Lynis will:
+
+Check installed software
+
+Scan configurations (firewall, kernel, etc.)
+
+Test for common vulnerabilities
+
+Suggest hardening improvements
+
+3. Important Commands
+Show available modules and categories:
+bash
+Copy
+Edit
+lynis show modules
+lynis show tests
+Run specific tests:
+bash
+Copy
+Edit
+sudo lynis audit system --tests "malware,authentication"
+Run in pentest mode (less intrusive):
+bash
+Copy
+Edit
+sudo lynis audit system --pentest
+4. Analyze the Report
+After the scan, Lynis will:
+
+Show results in the terminal
+
+Save logs and reports in /var/log/lynis.log and /var/log/lynis-report.dat
+
+You’ll see:
+
+Warnings: Issues that need fixing
+
+Suggestions: Hardening tips
+
+Hardening index: Security score of your system
+
+5. Example: Fixing Warnings
+If Lynis shows SSH root login is enabled:
+
+Disable it in /etc/ssh/sshd_config:
+
+nginx
+Copy
+Edit
+PermitRootLogin no
+Restart SSH:
+
+bash
+Copy
+Edit
+sudo systemctl restart ssh
+Run Lynis again to verify improvements.
+
+6. Automate Lynis
+To run Lynis regularly:
+
+bash
+Copy
+Edit
+sudo lynis audit system --cronjob
+(This produces minimal output but logs everything.)
+
+⚡ Tip: Lynis is read-only by default (it won't make changes). You need to apply the suggested fixes manually.
+
