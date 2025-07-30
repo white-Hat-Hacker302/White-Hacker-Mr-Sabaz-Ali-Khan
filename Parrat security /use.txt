@@ -1,0 +1,76 @@
+It looks like you're asking about Parrot Security OS command-line commands and their uses. Parrot Security OS is a penetration testing and security-focused Linux distribution, similar to Kali Linux. Here’s a list of important command-line commands and their uses:
+
+1. Basic System Commands
+pwd → Shows the current directory path.
+
+ls → Lists files and directories in the current folder.
+
+cd [directory] → Changes to the specified directory.
+
+mkdir [name] → Creates a new directory.
+
+rm [file/folder] → Deletes files (-r for folders, -f to force).
+
+cp source destination → Copies files or directories.
+
+mv source destination → Moves or renames files/directories.
+
+2. User & System Management
+whoami → Displays the current logged-in user.
+
+id → Shows user and group IDs.
+
+adduser [username] → Adds a new user.
+
+passwd [username] → Changes user password.
+
+sudo [command] → Runs command as root (admin).
+
+3. Networking Commands
+ifconfig / ip a → Displays network interface information.
+
+ping [host] → Tests connectivity to a host.
+
+netstat -tulnp → Shows open ports and services.
+
+nmap [target] → Scans for open ports on a target.
+
+wget [url] → Downloads files from the internet.
+
+curl [url] → Fetches data from a URL.
+
+4. Package Management
+sudo apt update → Updates the package list.
+
+sudo apt upgrade → Upgrades installed packages.
+
+sudo apt install [package] → Installs a new package.
+
+sudo apt remove [package] → Removes a package.
+
+5. Security & Pentesting Tools
+msfconsole → Starts the Metasploit Framework.
+
+airmon-ng → Enables monitor mode on wireless interfaces.
+
+aircrack-ng [file] → Cracks Wi-Fi passwords.
+
+hydra → Brute-force attack tool for logins.
+
+john → Password cracker (John the Ripper).
+
+sqlmap -u [URL] → Tests websites for SQL injection.
+
+6. File Permissions
+chmod 755 [file] → Changes file permissions.
+
+chown user:group [file] → Changes file ownership.
+
+7. System Information
+uname -a → Displays kernel and system info.
+
+df -h → Shows disk space usage.
+
+top / htop → Displays running processes.
+
+⚡ Tip: Parrot Security OS includes hundreds of pentesting tools. Most are command-line based. Use toolname --help to see options for each tool.
