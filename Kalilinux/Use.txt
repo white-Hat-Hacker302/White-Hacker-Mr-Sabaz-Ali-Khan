@@ -1,0 +1,132 @@
+1. System Basics
+uname -a
+→ Displays system information (kernel version, architecture, etc.).
+
+ls
+→ Lists files and directories in the current directory.
+Example: ls -la shows hidden files and detailed info.
+
+pwd
+→ Prints the current working directory.
+
+cd [directory]
+→ Changes directory. Example: cd /etc
+
+mkdir [directory]
+→ Creates a new directory. Example: mkdir test
+
+rm [file]
+→ Deletes a file. Use rm -r [dir] to remove directories recursively.
+
+2. User & Permissions
+whoami
+→ Shows the current user.
+
+sudo [command]
+→ Runs a command as root.
+
+chmod [permissions] [file]
+→ Changes file permissions. Example: chmod 755 script.sh
+
+chown [user:group] [file]
+→ Changes file ownership. Example: chown root:root file.txt
+
+3. Package Management
+apt update
+→ Updates package list.
+
+apt upgrade
+→ Upgrades installed packages.
+
+apt install [package]
+→ Installs a new package. Example: apt install nmap
+
+apt remove [package]
+→ Removes a package.
+
+4. Networking
+ifconfig (or ip a)
+→ Shows network interfaces and IP addresses.
+
+ping [host]
+→ Sends ICMP packets to check connectivity. Example: ping google.com
+
+netstat -tulnp
+→ Lists open ports and listening services.
+
+nmap [target]
+→ Scans a host for open ports and services. Example: nmap 192.168.1.1
+
+curl [url]
+→ Fetches a webpage from the terminal.
+
+wget [url]
+→ Downloads files from the internet.
+
+5. File Operations
+cp [source] [destination]
+→ Copies files. Example: cp file.txt /tmp/
+
+mv [source] [destination]
+→ Moves or renames files.
+
+cat [file]
+→ Displays file content.
+
+less [file]
+→ Views large files one page at a time.
+
+find /path -name [filename]
+→ Searches for a file.
+
+grep [string] [file]
+→ Searches for text in files.
+
+6. Hacking / Security Tools
+msfconsole
+→ Launches the Metasploit Framework.
+
+airmon-ng
+→ Manages wireless interfaces (used in Wi-Fi attacks).
+
+aircrack-ng
+→ Cracks Wi-Fi passwords using captured handshakes.
+
+hydra -l user -P passlist.txt target
+→ Performs brute-force attacks on services.
+
+burpsuite
+→ Launches Burp Suite for web app testing.
+
+sqlmap -u [url] --dbs
+→ Automated SQL injection tool.
+
+john [hashfile]
+→ John the Ripper password cracker.
+
+setoolkit
+→ Social Engineering Toolkit.
+
+7. System Monitoring
+top
+→ Shows running processes.
+
+htop
+→ Interactive version of top.
+
+df -h
+→ Shows disk usage.
+
+du -sh [folder]
+→ Shows size of a folder.
+
+8. Scripting
+nano [file]
+→ Opens a simple text editor.
+
+python3 [script.py]
+→ Runs a Python script.
+
+bash [script.sh]
+→ Runs a bash script.
+
