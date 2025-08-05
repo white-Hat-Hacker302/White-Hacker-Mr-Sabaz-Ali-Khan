@@ -1,0 +1,97 @@
+✅ What is Masscan?
+Masscan is the fastest port scanner — it can scan the entire Internet in under 6 minutes. It's similar to Nmap but much faster. It uses its own TCP/IP stack.
+
+🧱 Step-by-Step Setup and Usage
+🔹 Step 1: Install Masscan (if not already installed)
+Open your terminal and type:
+
+bash
+Copy
+Edit
+sudo apt update
+sudo apt install masscan -y
+To verify installation:
+
+bash
+Copy
+Edit
+masscan --version
+🔹 Step 2: Basic Usage Syntax
+bash
+Copy
+Edit
+masscan [target IP/range] -p[port(s)] [options]
+🔍 Step 3: Example Commands
+✅ 1. Scan a single IP for open port 80
+bash
+Copy
+Edit
+sudo masscan 192.168.1.10 -p80
+✅ 2. Scan an IP range for multiple ports
+bash
+Copy
+Edit
+sudo masscan 192.168.1.0/24 -p22,80,443
+✅ 3. Scan the whole Internet for port 80 (⚠️ Be careful!)
+bash
+Copy
+Edit
+sudo masscan 0.0.0.0/0 -p80 --rate=1000
+⚠️ Warning: Scanning the entire Internet without permission can be illegal. Use this only in lab/test environments or with permission.
+
+✅ 4. Scan with custom rate (speed)
+bash
+Copy
+Edit
+sudo masscan 192.168.1.0/24 -p80 --rate=1000
+--rate=1000 means 1000 packets per second. You can increase this, but higher rates may be detected as attacks or blocked.
+
+🛠️ Step 4: Save Results to a File
+bash
+Copy
+Edit
+sudo masscan 192.168.1.0/24 -p80 -oG scan_results.txt
+-oG = Grepable output format
+
+🔐 Step 5: Run as Root
+Masscan uses raw sockets and needs root privileges, so always use sudo.
+
+🧠 Step 6: Important Options
+Option	Description
+-p	Port(s) to scan
+--rate	Packets per second (controls speed)
+--interface	Network interface to use
+--router-mac	Needed if scanning beyond local subnet
+-oX	Save result in XML
+-oJ	Save result in JSON
+
+✅ Step 7: Example - Advanced Usage
+Scan with interface and custom source IP
+bash
+Copy
+Edit
+sudo masscan 192.168.1.0/24 -p80 --interface eth0 --source-ip 192.168.1.100 --rate=500
+🧪 Step 8: Testing in Lab
+To test in a local environment safely:
+
+bash
+Copy
+Edit
+sudo masscan 127.0.0.1 -p1-1024
+🚨 Tips and Warnings
+Use responsibly — unauthorized scanning can get your IP blocked or blacklisted.
+
+Masscan is not a replacement for Nmap. It finds open ports fast but doesn't provide service/version detection.
+
+Combine Masscan + Nmap for best results:
+
+bash
+Copy
+Edit
+sudo masscan 192.168.1.0/24 -p80 -oG masscan.txt
+Then use Nmap:
+
+bash
+Copy
+Edit
+sudo nmap -iL masscan.txt -p80 -sV
