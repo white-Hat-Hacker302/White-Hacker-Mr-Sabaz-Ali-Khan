@@ -1,0 +1,105 @@
+🔧 What is Dradis?
+Dradis helps you:
+
+Document vulnerabilities
+
+Share info between team members
+
+Generate custom pentest reports
+
+Integrate tools like Nmap, Nikto, Burp Suite, etc.
+
+✅ Step-by-Step: Using Dradis in Kali Linux
+Step 1: Start Dradis
+bash
+Copy
+Edit
+dradis-ce
+Or manually run the service:
+
+bash
+Copy
+Edit
+cd /opt/dradis-ce
+./bin/dradis-ce-start
+Once running, open your browser and go to:
+
+arduino
+Copy
+Edit
+http://localhost:3000
+Default credentials (if first time):
+
+Username: admin@dradis.local
+
+Password: dradis
+
+⚠️ You should change the default password after first login.
+
+Step 2: Create a New Project
+Click “Projects” → “New Project”
+
+Give it a name (e.g., Web App Pentest)
+
+Add a description (optional)
+
+Step 3: Import Tool Outputs
+You can import findings from:
+
+Nmap
+
+Nikto
+
+Burp Suite
+
+Nessus
+
+Metasploit
+
+OpenVAS
+
+etc.
+
+To import:
+
+Click “Upload File”
+
+Choose the tool output (e.g., .xml, .nessus, .html)
+
+Dradis will parse and structure the results
+
+Step 4: Add Notes and Evidence
+You can write manual findings (like custom XSS or SQLi results).
+
+Click on a Node (host, IP, or URL)
+
+Add Notes, Evidence, Screenshots, or Recommendations
+
+Step 5: Collaborate with Team
+Multiple users can log in and edit the same project.
+
+All changes are synced in real time.
+
+Step 6: Export the Report
+Go to Reports tab
+
+Choose your desired template (HTML, Word, PDF)
+
+Click Export
+
+You can customize the report templates using LaTeX, HTML, or the Ruby-based Dradis templates.
+
+🔄 Stop Dradis
+To stop the service:
+
+bash
+Copy
+Edit
+cd /opt/dradis-ce
+./bin/dradis-ce-stop
+📌 Tips
+You can integrate Metasploit, Nessus, and other tools using Dradis plugins
+
+Customize your own templates to match your company or client branding
+
+Use Tags and Categories to organize findings
