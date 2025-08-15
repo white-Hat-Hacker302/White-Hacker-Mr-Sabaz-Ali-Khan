@@ -1,0 +1,91 @@
+Install Lynis (if not already installed)
+
+Kali usually includes it, but you can check:
+
+sudo apt update
+sudo apt install lynis
+
+
+To verify installation:
+
+lynis --version
+
+2️⃣ Run a Basic System Audit
+
+To run a full system scan:
+
+sudo lynis audit system
+
+
+This will:
+
+Scan system configuration
+
+Check permissions
+
+Test security controls
+
+Recommend improvements
+
+When finished, Lynis gives:
+
+Warnings (high priority fixes)
+
+Suggestions (improvements)
+
+Hardening index (security score)
+
+3️⃣ View Scan Results
+
+Lynis saves reports in:
+
+/var/log/lynis.log
+/var/log/lynis-report.dat
+
+
+To view the report:
+
+cat /var/log/lynis-report.dat
+
+
+Or open it with a text editor:
+
+nano /var/log/lynis-report.dat
+
+4️⃣ Common Audit Examples
+
+Scan only specific categories (e.g., authentication)
+
+sudo lynis audit system --tests-from-group authentication
+
+
+Check for malware-related security
+
+sudo lynis audit system --tests-from-group malware
+
+
+Custom scan from file
+
+sudo lynis audit system --profile myprofile.prf
+
+5️⃣ Understand the Hardening Index
+
+After scanning, Lynis gives a hardening index (0–100+).
+Higher = better security.
+If your score is low:
+
+Follow Lynis’ [Suggestions]
+
+Patch vulnerabilities
+
+Adjust configurations (e.g., SSH, firewall, kernel parameters)
+
+6️⃣ Example Usage in Kali
+# Full audit
+sudo lynis audit system
+
+# Audit authentication settings only
+sudo lynis audit system --tests-from-group authentication
+
+# Audit networking security
+sudo lynis audit system --tests-from-group networking
