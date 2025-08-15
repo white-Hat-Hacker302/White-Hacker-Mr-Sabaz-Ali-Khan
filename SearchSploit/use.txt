@@ -1,0 +1,72 @@
+1. Check if SearchSploit is installed
+
+Kali Linux usually has it by default, but confirm with:
+
+searchsploit
+
+
+If you see usage instructions, it’s installed. If not:
+
+sudo apt update && sudo apt install exploitdb -y
+
+2. Basic Search
+
+Search for a keyword:
+
+searchsploit apache
+
+
+This will list all exploits with “apache” in the title.
+
+Search with multiple keywords:
+
+searchsploit apache 2.4
+
+
+Case-insensitive search:
+
+searchsploit -i Apache
+
+3. Search for Exact Phrases
+
+Put the phrase in quotes:
+
+searchsploit "OpenSSH 7.2"
+
+4. Show More Details
+
+If you want the exploit’s description to be fully visible:
+
+searchsploit -w apache
+
+
+-w shows the Exploit-DB web URL for each result.
+
+5. Copy an Exploit to Your Workspace
+
+If you find an exploit you want to use, copy it from the database:
+
+searchsploit -m 12345
+
+
+(Here, 12345 is the Exploit-DB ID from the search results.)
+
+6. Update Exploit Database
+
+Keep it fresh so you get the latest exploits:
+
+searchsploit -u
+
+7. Example Workflow
+
+Say you find a service:
+
+nmap -sV target.com
+
+
+It shows ProFTPD 1.3.5. You can then:
+
+searchsploit "ProFTPD 1.3.5"
+
+
+If an exploit exists, copy it and run it from your working directory.
