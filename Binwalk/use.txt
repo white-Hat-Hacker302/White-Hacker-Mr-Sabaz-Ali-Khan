@@ -1,0 +1,95 @@
+1. Install Binwalk (if not already installed)
+
+Kali Linux usually comes with Binwalk pre-installed, but you can make sure with:
+
+sudo apt update
+sudo apt install binwalk
+
+
+Check if it’s working:
+
+binwalk --version
+
+2. Basic Syntax
+binwalk [options] <file>
+
+
+Example:
+
+binwalk firmware.bin
+
+
+This will scan the file and show any signatures, compressed data, or embedded files.
+
+3. Common Usage Examples
+A. Scanning a File
+binwalk firmware.bin
+
+
+Shows offsets (where data starts), type of data, and description.
+
+B. Extracting Embedded Files
+binwalk -e firmware.bin
+
+
+-e → Extracts known file types (JPEGs, ZIPs, etc.) automatically.
+
+Extracted files will be saved in a new directory like:
+
+_firmware.bin.extracted/
+
+C. Recursive Extraction
+
+If files are inside other files (like multiple layers of compression):
+
+binwalk -Me firmware.bin
+
+
+-M → Recursive scan
+
+-e → Extract
+This digs deeper into nested files.
+
+D. Showing Only Specific Matches
+
+If you only want to see certain file types:
+
+binwalk -R "PNG" firmware.bin
+
+
+-R lets you search for a custom string or pattern.
+
+E. Viewing Entropy (to detect compression/encryption)
+binwalk -E firmware.bin
+
+
+High entropy (~8) → likely encrypted/compressed.
+
+Low entropy → plain text or uncompressed data.
+
+4. Typical Workflow
+
+Scan the binary:
+
+binwalk firmware.bin
+
+
+Extract found files:
+
+binwalk -e firmware.bin
+
+
+Explore extracted folder:
+
+cd _firmware.bin.extracted
+ls
+
+
+Analyze files further (with strings, hexdump, foremost, etc.).
+
+5. Example Output
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             ELF 32-bit LSB executable, ARM, version 1 (SYSV)
+1024          0x400           gzip compressed data, maximum compression, from Unix
+2048          0x800           PNG image, 800 x 600, 8-bit/color
